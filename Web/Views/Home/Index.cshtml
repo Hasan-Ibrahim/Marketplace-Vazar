@@ -1,0 +1,20 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Jantrik:CWC</title>
+</head>
+<body>
+    <div>
+        <form action="@Url.Action("Login", "Account")" method="POST">
+            Login Id: <input type="text" name="LoginId"/> <br/>
+            Password: <input type="password" name="Password"/> <br/>
+            <input type="submit" value="Login"/>
+        </form>
+    </div>
+</body>
+</html>
