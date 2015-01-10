@@ -23,7 +23,7 @@ namespace Service.Account
             return user != null && user.HashedPassword != null && user.HashedPassword == passwordHash;
         }
 
-        public static string GenerateHash(string plainText)
+        public string GenerateHash(string plainText)
         {
             var encoded = new UTF8Encoding().GetBytes(plainText);
             var hash = ((HashAlgorithm)CryptoConfig.CreateFromName("MD5")).ComputeHash(encoded);

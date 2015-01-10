@@ -10,10 +10,24 @@
 </head>
 <body>
     <div>
+        <div>
+            @User.Identity.Name
+            @if (User.Identity.IsAuthenticated)
+            {
+                <a href="@Url.Action("Logout", "Account")">Logout</a>
+            }
+        </div>
         <form action="@Url.Action("Login", "Account")" method="POST">
-            Login Id: <input type="text" name="LoginId"/> <br/>
-            Password: <input type="password" name="Password"/> <br/>
-            <input type="submit" value="Login"/>
+            Login Id:
+            <input type="text" name="LoginId" />
+            <br />
+            Password:
+            <input type="password" name="Password" />
+            <br />
+            <input type="checkbox" name="RememberMe" />
+            Remember Me
+            <br />
+            <input type="submit" value="Login" />
         </form>
     </div>
 </body>
