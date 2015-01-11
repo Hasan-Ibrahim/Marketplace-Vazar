@@ -156,8 +156,12 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\site.css" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\App\Account\accountController.js" />
+    <Content Include="Scripts\App\Account\Controllers\changePasswordController.js" />
+    <Content Include="Scripts\App\Account\Controllers\logOnController.js" />
+    <Content Include="Scripts\App\Account\Controllers\registrationController.js" />
+    <Content Include="Scripts\App\appRoute.js" />
     <Content Include="Scripts\App\appModule.js" />
+    <Content Include="Scripts\App\Home\Controllers\homeController.js" />
     <Content Include="Scripts\Lib\bootstrap.js" />
     <Content Include="Scripts\Lib\angular-route.js" />
     <Content Include="Scripts\Lib\ui-bootstrap-tpls.js" />
@@ -170,6 +174,10 @@
     <None Include="Scripts\Lib\jquery-2.1.3.intellisense.js" />
     <Content Include="Scripts\Lib\angular-mocks.js" />
     <Content Include="Scripts\Lib\jquery-2.1.3.js" />
+    <Content Include="Templates\Account\changePassword.html" />
+    <Content Include="Templates\Account\registration.html" />
+    <Content Include="Templates\Home\home.html" />
+    <Content Include="Templates\Account\logOn.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
