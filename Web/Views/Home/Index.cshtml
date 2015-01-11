@@ -17,6 +17,7 @@
                 <a href="@Url.Action("Logout", "Account")">Logout</a>
             }
         </div>
+        Login <br/>
         <form action="@Url.Action("Login", "Account")" method="POST">
             Login Id:
             <input type="text" name="LoginId" />
@@ -28,6 +29,19 @@
             Remember Me
             <br />
             <input type="submit" value="Login" />
+        </form>
+        Register <br/>
+        <form action="@Url.Action("Register", "Account")" method="POST">
+            Email:
+            <input type="text" name="Email" />
+            <br />
+            Password:
+            <input type="password" name="Password" />
+            <br />
+            Retype Password:
+            <input type="password" name="RetypePassword" />
+            <br />
+            <input type="submit" value="Register" />
         </form>
     </div>
 </body>

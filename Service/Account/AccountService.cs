@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Security.Cryptography;
 using System.Text;
+using Data.Model;
 using Data.Repositories;
 
 namespace Service.Account
@@ -29,6 +30,18 @@ namespace Service.Account
             var hash = ((HashAlgorithm)CryptoConfig.CreateFromName("MD5")).ComputeHash(encoded);
             var hashString = BitConverter.ToString(hash).Replace("-", string.Empty).ToLower();
             return hashString;
+        }
+
+        public bool CreateUser(string email, string password)
+        {
+            if (_userRepository.Exists(user => user.LoginId == email))
+            {
+                return false;
+            }
+
+            var passwordHash = GenerateHash(password);
+            _userRepository.Create(new DbUser(email, passwordHash));
+            return true;
         }
     }
 }
