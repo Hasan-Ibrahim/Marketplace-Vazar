@@ -1,4 +1,4 @@
-﻿namespace Web.Models.Account
+﻿namespace Service.Account
 {
     public class Login
     {

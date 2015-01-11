@@ -43,5 +43,27 @@ namespace Service.Account
             _userRepository.Create(new DbUser(email, passwordHash));
             return true;
         }
+
+        public bool UpdateProfile(string loginId, ProfileUpdate update)
+        {
+            var profile = _userRepository.FindByLoginId(loginId);
+
+            if (!string.IsNullOrWhiteSpace(update.OldPassword))
+            {
+                var currentPasswordHash = GenerateHash(update.OldPassword);
+                if (currentPasswordHash != profile.HashedPassword)
+                {
+                    return false;
+                }
+
+                profile.HashedPassword = GenerateHash(update.NewPassword);
+            }
+
+            profile.FullName = update.FullName;
+
+            _userRepository.Update(profile);
+
+            return true;
+        }
     }
 }

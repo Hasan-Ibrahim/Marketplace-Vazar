@@ -11,7 +11,8 @@
 <body>
     <div>
         <div>
-            @User.Identity.Name
+            @User.Identity.Name <br/>
+            @ViewBag.FullName
             @if (User.Identity.IsAuthenticated)
             {
                 <a href="@Url.Action("Logout", "Account")">Logout</a>
@@ -42,6 +43,23 @@
             <input type="password" name="RetypePassword" />
             <br />
             <input type="submit" value="Register" />
+        </form>
+        
+        Update <br/>
+        <form action="@Url.Action("Update", "Account")" method="POST">
+            Full name:
+            <input type="text" name="FullName" />
+            <br />
+            New Password:
+            <input type="password" name="NewPassword" />
+            <br />
+            Retype New Password:
+            <input type="password" name="RetypeNewPassword" />
+            <br />
+            <br />
+            Current Password:
+            <input type="password" name="OldPassword" /> <br/>
+            <input type="submit" value="Save" />
         </form>
     </div>
 </body>

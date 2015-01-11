@@ -4,6 +4,7 @@
     {
         public string LoginId { get; set; }
         public string HashedPassword { get; set; }
+        public string FullName { get; set; }
 
         public DbUser()
         {
@@ -14,6 +15,11 @@
         {
             LoginId = loginId;
             HashedPassword = hashedPassword;
+        }
+
+        public DbUser(string loginId, string hashedPassword, string fullName): this(loginId, hashedPassword)
+        {
+            FullName = fullName;
         }
     }
 }

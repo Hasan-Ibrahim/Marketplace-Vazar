@@ -1,8 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Security;
 using Service.Account;
-using Web.Models.Account;
-using Login = Web.Models.Account.Login;
+using Login = Service.Account.Login;
 
 namespace Web.Controllers
 {
@@ -37,6 +36,22 @@ namespace Web.Controllers
                 created = _accountService.CreateUser(registration.Email, registration.Password);
             }
             return RedirectToAction("Index", "Home", new { registered = created });
+        }
+
+        [HttpPost]
+        public ActionResult Update(ProfileUpdate update)
+        {
+            var updated = false;
+            if (ModelState.IsValid)
+            {
+                updated = _accountService.UpdateProfile(User.Identity.Name, update);
+                if (updated)
+                {
+                    ViewBag.FullName = update.FullName;
+                }
+            }
+
+            return RedirectToAction("Index", "Home", new {updated = updated});
         }
 
         public ActionResult Logout()
