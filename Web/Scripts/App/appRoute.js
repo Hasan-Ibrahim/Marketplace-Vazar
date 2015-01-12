@@ -9,16 +9,17 @@
             templateUrl: '/Templates/Account/registration.html',
             controller: 'registrationController'
         })
-        .when('/account/logOn', {
-            templateUrl: '/Templates/Account/logOn.html',
-            controller: 'logOnController'
+        .when('/account/login', {
+            templateUrl: '/Templates/Account/login.html',
+            controller: 'loginController'
         })
         .when('/account/changePassword', {
             templateUrl: '/Templates/Account/changePassword.html',
-            controller: 'logOnController'
+            controller: 'changePasswordController'
         })
         .otherwise({
             redirectTo: '/home'
         });
     }
 ]);
+

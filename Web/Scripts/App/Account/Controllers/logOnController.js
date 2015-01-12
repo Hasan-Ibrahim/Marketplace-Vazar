@@ -1,5 +1,0 @@
-﻿appModule.controller('logOnController', [
-    function() {
-
-    }
-]);
