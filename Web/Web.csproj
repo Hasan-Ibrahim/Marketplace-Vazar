@@ -152,8 +152,10 @@
     <Content Include="Content\angular-toastr.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\font-awesome.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\site.css" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\Lib\angular-toastr.js" />
     <Content Include="Scripts\App\urlResolver.js" />
@@ -172,6 +174,10 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\FontAwesome.otf" />
     <None Include="Scripts\Lib\jquery-2.1.3.intellisense.js" />
     <Content Include="Scripts\Lib\angular-mocks.js" />
     <Content Include="Scripts\Lib\jquery-2.1.3.js" />

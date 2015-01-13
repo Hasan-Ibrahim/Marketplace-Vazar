@@ -30,6 +30,7 @@ namespace Web
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/bootstrap-theme.css",
+                      "~/Content/font-awesome.css",
                       "~/Content/angular-toastr.css",
                       "~/Content/site.css"));
         }
