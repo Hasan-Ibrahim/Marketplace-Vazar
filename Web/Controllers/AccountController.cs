@@ -17,14 +17,16 @@ namespace Web.Controllers
         [HttpPost]
         public ActionResult Login(Login login)
         {
+            var loggedIn = false;
             var valid = _accountService.ValidateUser(login.LoginId, login.Password);
 
             if (valid)
             {
                 FormsAuthentication.SetAuthCookie(login.LoginId, login.RememberMe);
+                loggedIn = true;
             }
 
-            return RedirectToAction("Index", "Home");
+            return Json(new { success = loggedIn });
         }
 
         [HttpPost]
@@ -35,7 +37,7 @@ namespace Web.Controllers
             {
                 created = _accountService.CreateUser(registration.Email, registration.Password);
             }
-            return RedirectToAction("Index", "Home", new { registered = created });
+            return Json(new { registered = created });
         }
 
         [HttpPost]
@@ -51,7 +53,7 @@ namespace Web.Controllers
                 }
             }
 
-            return RedirectToAction("Index", "Home", new {updated = updated});
+            return RedirectToAction("Index", "Home", new { updated = updated });
         }
 
         public ActionResult Logout()

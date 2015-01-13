@@ -1,8 +1,9 @@
 ﻿.input-group-addon {
     padding-left: 5px;
+    padding-right: 7px;
 }
 
-.register-label {
+.header-label {
     text-align: left;
     border-bottom: 2px solid #ffffff;
     padding-bottom: 8px;
