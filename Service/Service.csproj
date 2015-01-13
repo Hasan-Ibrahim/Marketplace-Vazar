@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Account\AccountService.cs" />
     <Compile Include="Account\Login.cs" />
+    <Compile Include="Account\OAuth\OAuthManager.cs" />
     <Compile Include="Account\ProfileUpdate.cs" />
     <Compile Include="Account\Registration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
