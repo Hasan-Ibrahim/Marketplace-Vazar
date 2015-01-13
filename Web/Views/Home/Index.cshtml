@@ -19,6 +19,7 @@
             }
         </div>
         Login <br/>
+        <a href="@Url.Action("GoogleSignIn", "OAuth")">Signin with Google</a>
         <form action="@Url.Action("Login", "Account")" method="POST">
             Login Id:
             <input type="text" name="LoginId" />

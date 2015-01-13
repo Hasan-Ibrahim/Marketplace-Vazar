@@ -69,7 +69,7 @@ namespace Web.Controllers
                 FormsAuthentication.SetAuthCookie(idToken.email, false);                
             }
 
-            return Content(response, "application/json");
+            return RedirectToAction("Index", "Home");
         }
 
         private string FixBase64String(string base64String)
