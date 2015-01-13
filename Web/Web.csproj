@@ -216,6 +216,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Scripts\Test\" />
     <Folder Include="Views\UserProfile\" />
   </ItemGroup>
   <ItemGroup>
