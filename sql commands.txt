@@ -1,0 +1,7 @@
+create table if not exists app."User" (
+"Id" SERIAL PRIMARY KEY,
+"LoginId" varchar NOT NULL,
+"HashedPassword" varchar NOT NULL,
+"FullName" varchar,
+"IsDeleted" boolean DEFAULT False
+);

@@ -1,0 +1,5 @@
+﻿appModule.controller('changePasswordController', [
+    function () {
+
+    }
+]);
