@@ -49,6 +49,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Abstraction\InMemoryRepository.cs" />
     <Compile Include="Repositories\Abstraction\IRepository.cs" />
+    <Compile Include="Repositories\Abstraction\PgsqlRepository.cs" />
     <Compile Include="Repositories\Abstraction\Repository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
   </ItemGroup>
