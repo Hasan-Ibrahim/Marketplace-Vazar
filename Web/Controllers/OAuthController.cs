@@ -91,6 +91,7 @@ namespace Web.Controllers
 
             return Redirect(url);
         }
+/*
 
         public ActionResult FacebookSignInSuccess(string state, string code)
         {
@@ -140,6 +141,7 @@ namespace Web.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+*/
 
 
         private string FixBase64String(string base64String)
