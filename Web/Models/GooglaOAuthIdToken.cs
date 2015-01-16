@@ -1,6 +1,6 @@
 ﻿namespace Web.Models
 {
-    public class GooglaOAuthIdTocken
+    public class GooglaOAuthIdToken
     {
         public string iss { get; set; }
         public string at_hash { get; set; }

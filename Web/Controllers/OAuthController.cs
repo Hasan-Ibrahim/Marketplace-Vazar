@@ -64,10 +64,10 @@ namespace Web.Controllers
 
             var r = new JavaScriptSerializer().Deserialize<GoogleOAuthResponse>(response);
 
-            var idTockenParts = r.id_token.Split('.');
-            var idTokenBase64 = FixBase64String(idTockenParts[1]);
+            var idTokenParts = r.id_token.Split('.');
+            var idTokenBase64 = FixBase64String(idTokenParts[1]);
             var data = Convert.FromBase64String(FixBase64String(idTokenBase64));
-            var idToken = new JavaScriptSerializer().Deserialize<GooglaOAuthIdTocken>(Encoding.UTF8.GetString(data));
+            var idToken = new JavaScriptSerializer().Deserialize<GooglaOAuthIdToken>(Encoding.UTF8.GetString(data));
 
             if (idToken.email_verified)
             {
@@ -129,10 +129,10 @@ namespace Web.Controllers
 
             var r = new JavaScriptSerializer().Deserialize<GoogleOAuthResponse>(response);
 
-            var idTockenParts = r.id_token.Split('.');
-            var idTokenBase64 = FixBase64String(idTockenParts[1]);
+            var idTokenParts = r.id_token.Split('.');
+            var idTokenBase64 = FixBase64String(idTokenParts[1]);
             var data = Convert.FromBase64String(FixBase64String(idTokenBase64));
-            var idToken = new JavaScriptSerializer().Deserialize<GooglaOAuthIdTocken>(Encoding.UTF8.GetString(data));
+            var idToken = new JavaScriptSerializer().Deserialize<GooglaOAuthIdToken>(Encoding.UTF8.GetString(data));
 
             if (idToken.email_verified)
             {

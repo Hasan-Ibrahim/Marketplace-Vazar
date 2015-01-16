@@ -14,50 +14,6 @@ namespace Web.Controllers
             _accountService = accountService;
         }
 
-        [HttpPost]
-        public ActionResult Login(Login login)
-        {
-            var valid = _accountService.ValidateUser(login.LoginId, login.Password);
-
-            if (valid)
-            {
-                FormsAuthentication.SetAuthCookie(login.LoginId, login.RememberMe);
-            }
-
-            return RedirectToAction("Index", "Home");
-        }
-
-        [HttpPost]
-        public ActionResult Register(Registration registration)
-        {
-            var created = false;
-            if (ModelState.IsValid)
-            {
-                created = _accountService.CreateUser(registration.Email, registration.Password);
-            }
-            return RedirectToAction("Index", "Home", new { registered = created });
-        }
-
-        [HttpPost]
-        public ActionResult Update(ProfileUpdate update)
-        {
-            var updated = false;
-            if (ModelState.IsValid)
-            {
-                updated = _accountService.UpdateProfile(User.Identity.Name, update);
-                if (updated)
-                {
-                    ViewBag.FullName = update.FullName;
-                }
-            }
-
-            return RedirectToAction("Index", "Home", new {updated = updated});
-        }
-
-        public ActionResult Logout()
-        {
-            FormsAuthentication.SignOut();
-            return RedirectToAction("Index", "Home");
-        }
+        
     }
 }

@@ -51,6 +51,8 @@
     <Compile Include="Repositories\Abstraction\IRepository.cs" />
     <Compile Include="Repositories\Abstraction\Repository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="TokenStorages\InMemoryTokenStorage.cs" />
+    <Compile Include="TokenStorages\ITokenStorage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -15,11 +15,11 @@ namespace Service.Account
             _userRepository = userRepository;
         }
 
-        public bool ValidateUser(string loginId, string password)
+        public bool ValidateUser(Login login)
         {
-            var passwordHash = GenerateHash(password);
+            var passwordHash = GenerateHash(login.Password);
 
-            var user = _userRepository.FindByLoginId(loginId);
+            var user = _userRepository.FindByLoginId(login.LoginId);
 
             return user != null && user.HashedPassword != null && user.HashedPassword == passwordHash;
         }
