@@ -5,3 +5,6 @@ create table if not exists app."User" (
 "FullName" varchar,
 "IsDeleted" boolean DEFAULT False
 );
+
+Insert Into app."User"("LoginId", "HashedPassword", "FullName") 
+Values('tajkia', '202cb962ac59075b964b07152d234b70', 'Tajkia Rahman Toma')

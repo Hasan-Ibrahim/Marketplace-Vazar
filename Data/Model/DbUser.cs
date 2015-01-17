@@ -1,5 +1,8 @@
-﻿namespace Data.Model
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Data.Model
 {
+    [Table("app.User")]
     public class DbUser : DbModel
     {
         public string LoginId { get; set; }

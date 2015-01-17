@@ -7,13 +7,13 @@ using System.Linq;
 
 namespace Data.Repositories.Abstraction
 {
-    class PgsqlRepository<TModel>: IRepository<TModel> where TModel : DbModel
+    public class PgsqlRepository<TModel>: IRepository<TModel> where TModel : DbModel
     {
         private readonly SqlContext _db;
 
-        public PgsqlRepository()
+        public PgsqlRepository(SqlContext sqlContext)
         {
-            _db = new SqlContext();
+            _db = sqlContext;
         }
         public TModel Find(int id)
         {
@@ -22,7 +22,7 @@ namespace Data.Repositories.Abstraction
 
         public TModel Find(Func<TModel, bool> query)
         {
-            return _db.Set<TModel>().Find(query);
+            return _db.Set<TModel>().FirstOrDefault(query);
         }
 
         public bool Exists(Func<TModel, bool> query)
