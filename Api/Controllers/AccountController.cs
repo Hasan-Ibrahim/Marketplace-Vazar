@@ -49,6 +49,7 @@ namespace Api.Controllers
         }
 
         [HttpPut]
+        [TokenAuthorize]
         public object Update([FromBody]ProfileUpdate update)
         {
             var updated = false;
