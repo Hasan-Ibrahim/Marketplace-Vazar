@@ -5,6 +5,6 @@
         string CreateToken(string userId);
         bool TokenExists(string token);
         string GetLoginId(string token);
-        void DeleteToken(string loginId);
+        bool DeleteToken(string token);
     }
 }

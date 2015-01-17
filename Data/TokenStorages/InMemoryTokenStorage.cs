@@ -23,12 +23,13 @@ namespace Data.TokenStorages
             return _store.ContainsKey(token) ? _store[token] : null;
         }
 
-        public void DeleteToken(string loginId)
+        public bool DeleteToken(string token)
         {
-            if (loginId != null)
+            if (token != null)
             {
-                _store.Remove(loginId);                
+                return _store.Remove(token);                
             }
+            return false;
         }
     }
 }

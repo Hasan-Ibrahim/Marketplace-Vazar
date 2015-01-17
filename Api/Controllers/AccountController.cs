@@ -1,6 +1,7 @@
 ﻿using System.Net.Http;
 using System.Web.Http;
 using Api.AccessControl;
+using Api.AccessControl.Attribtues;
 using Data.TokenStorages;
 using Service.Account;
 
@@ -48,6 +49,7 @@ namespace Api.Controllers
         }
 
         [HttpPut]
+        [TokenAuthorize]
         public object Update([FromBody]ProfileUpdate update)
         {
             var updated = false;
@@ -60,10 +62,10 @@ namespace Api.Controllers
         }
 
         [HttpGet]
+        [TokenAuthorize]
         public bool Logout()
         {
-            _tokenStorage.DeleteToken(_tokenUser.LoginId);
-            return true;
+            return _tokenStorage.DeleteToken(_tokenUser.Token);
         }
     }
 }
