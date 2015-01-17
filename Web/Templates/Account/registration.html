@@ -1,0 +1,28 @@
+﻿<div align="center">
+    <form class="well" style="width: 500px;padding: 20px 50px 60px 50px;" ng-submit="register()">
+        <h4 class="header-label">
+            Register
+        </h4>
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon" style="padding-left: 83px;"><i class="fa fa-fw fa-envelope"></i>Email </div>
+                <input type="email" ng-model="registerModel.email" class="form-control" placeholder="Email">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon" style="padding-left: 58px;"><i class="fa fa-fw fa-key"></i>Password </div>
+                <input type="password" ng-model="registerModel.password" class="form-control" placeholder="Password">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon"><i class="fa fa-fw fa-check-circle"></i>Confirm Password </div>
+                <input type="password" ng-model="registerModel.retypePassword" class="form-control" placeholder="Confirm Password">
+            </div>
+        </div>
+        <div class="form-group" align="left">
+            <input type="submit" class="btn btn-primary" value="Register" style="float:right;"/>
+        </div>
+    </form>
+</div>
