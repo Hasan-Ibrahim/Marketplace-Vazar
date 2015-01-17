@@ -25,7 +25,7 @@ namespace Api.Controllers
         }
 
         [HttpPost]
-        public HttpResponseMessage GetToken([FromBody]Login login)
+        public HttpResponseMessage Login([FromBody]Login login)
         {
             if (_service.ValidateUser(login))
             {
