@@ -1,17 +1,17 @@
-﻿appModule.factory('accountRepository', ['appHelperService', '$http',
-    function (appHelperService, $http) {
+﻿appModule.factory('accountRepository', ['urlResolver', '$http',
+    function (urlResolver, $http) {
         return {
             register: function (registerModel) {
-                return $http.post(appHelperService.resolveAccount('Register'), registerModel);
+                return $http.post(urlResolver.resolveAccount('Register'), registerModel);
             },
             login: function (loginModel) {
-                return $http.post(appHelperService.resolveAccount('Login'), loginModel);
+                return $http.post(urlResolver.resolveAccount('Login'), loginModel);
             },
             logout: function () {
-                return $http.get(appHelperService.resolveAccount('Logout'));
+                return $http.get(urlResolver.resolveAccount('Logout'));
             },
             changePassword: function (passwordModel) {
-                return $http.get(appHelperService.resolveAccount('ChangePassword'), passwordModel);
+                return $http.post(urlResolver.resolveAccount('ChangePassword'), passwordModel);
             }
         }
     }

@@ -1,4 +1,4 @@
-﻿appModule.factory('appHelperService', ['$window',
+﻿appModule.factory('urlResolver', ['$window',
     function ($window) {
 
         function getActionUrl(controllerName, actionName) {

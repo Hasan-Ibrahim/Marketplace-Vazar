@@ -30,7 +30,9 @@
             }
         </div>
         Login <br/>
-        <form action="@Url.Action("Login", "Account")" method="POST">
+        <a href="api/OAuth/GoogleSignIn?clientRedirectUrl=http://localhost:1443/"> Signin with Google</a>
+        <a href="@Url.Action("FacebookSignIn", "OAuth")">Signin with Facebook</a>
+        <form action="api/Account/Login" method="POST">
             Login Id:
             <input type="text" name="LoginId" />
             <br />
@@ -43,7 +45,7 @@
             <input type="submit" value="Login" />
         </form>
         Register <br/>
-        <form action="@Url.Action("Register", "Account")" method="POST">
+        <form action="api/Account/Register" method="POST">
             Email:
             <input type="text" name="Email" />
             <br />
@@ -57,7 +59,7 @@
         </form>
         
         Update <br/>
-        <form action="@Url.Action("Update", "Account")" method="POST">
+        <form action="api/Account/Update" method="PUT">
             Full name:
             <input type="text" name="FullName" />
             <br />

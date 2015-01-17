@@ -1,7 +1,10 @@
-﻿using System;
+﻿/*
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Threading.Tasks;
 using Data.Model;
 using FizzWare.NBuilder;
 
@@ -26,14 +29,14 @@ namespace Data.Repositories.Abstraction
             _collection = (IDictionary<int, TModel>)_database[typeof(TModel)];
         }
 
-        public TModel Find(int id)
+        public async Task<TModel> Find(int id)
         {
-            return GetAll().FirstOrDefault(model => model.Id == id);
+            return await GetAll().FirstOrDefaultAsync(model => model.Id == id);
         }
 
-        public TModel Find(Func<TModel, bool> query)
+        public Task<TModel> Find(Expression<Func<TModel, bool>> query)
         {
-            return GetAll().FirstOrDefault(query);
+            return GetAll().FirstOrDefaultAsync(query);
         }
 
         public bool Exists(Func<TModel, bool> query)
@@ -41,7 +44,7 @@ namespace Data.Repositories.Abstraction
             return GetAll().Any(query);
         }
 
-        public IEnumerable<TModel> GetAll()
+        public Task<IQueryable<TModel>> GetAll()
         {
             var models = _collection.Values.Where(model => !model.IsDeleted).ToList();
             return models;
@@ -82,3 +85,4 @@ namespace Data.Repositories.Abstraction
         }
     }
 }
+*/
