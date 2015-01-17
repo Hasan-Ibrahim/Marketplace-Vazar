@@ -64,8 +64,7 @@ namespace Api.Controllers
         [TokenAuthorize]
         public bool Logout()
         {
-            _tokenStorage.DeleteToken(_tokenUser.LoginId);
-            return true;
+            return _tokenStorage.DeleteToken(_tokenUser.Token);
         }
     }
 }
