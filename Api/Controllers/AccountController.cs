@@ -1,6 +1,7 @@
 ﻿using System.Net.Http;
 using System.Web.Http;
 using Api.AccessControl;
+using Api.AccessControl.Attribtues;
 using Data.TokenStorages;
 using Service.Account;
 
@@ -60,6 +61,7 @@ namespace Api.Controllers
         }
 
         [HttpGet]
+        [TokenAuthorize]
         public bool Logout()
         {
             _tokenStorage.DeleteToken(_tokenUser.LoginId);

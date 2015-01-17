@@ -8,10 +8,12 @@ namespace Api.AccessControl.Attribtues
     {
         protected override bool IsAuthorized(HttpActionContext actionContext)
         {
-            var token = actionContext.Request.Headers.Authorization;
-            return TokenStorage.TokenExists(token.Scheme);
-        }
+            var cookieHandler = (AuthenticationCookieHandler)
+                GlobalConfiguration.Configuration.DependencyResolver.GetService(typeof (AuthenticationCookieHandler));
+            var tokenStorage = (ITokenStorage)GlobalConfiguration.Configuration.DependencyResolver.GetService(typeof(ITokenStorage));
 
-        public ITokenStorage TokenStorage { get; set; }
+            var token = cookieHandler.GetTokenFromRequest();
+            return tokenStorage.TokenExists(token);
+        }
     }
 }

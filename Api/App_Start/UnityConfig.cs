@@ -1,3 +1,4 @@
+using Api.AccessControl.Attribtues;
 using Data.Repositories.Abstraction;
 using Data.TokenStorages;
 using Microsoft.Practices.Unity;
@@ -18,7 +19,7 @@ namespace Api
             
             // e.g. container.RegisterType<ITestService, TestService>();
 
-            container.RegisterType(typeof(ITokenStorage), typeof(InMemoryTokenStorage));
+            container.RegisterType<ITokenStorage, InMemoryTokenStorage>();
             container.RegisterType(typeof (IRepository<>), typeof (InMemoryRepository<>));
 
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
