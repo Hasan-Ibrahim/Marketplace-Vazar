@@ -88,7 +88,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccessControl\Attribtues\TokenAuthorizeAttribute.cs" />
-    <Compile Include="AccessControl\AuthenticationResponse.cs" />
+    <Compile Include="AccessControl\AuthenticationCookieHandler.cs" />
     <Compile Include="AccessControl\TokenUser.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />

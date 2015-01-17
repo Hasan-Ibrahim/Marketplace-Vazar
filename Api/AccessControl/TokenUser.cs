@@ -8,9 +8,9 @@ namespace Api.AccessControl
         public readonly string Token;
         public readonly string LoginId;
         public readonly bool IsAuthenticated;
-        public TokenUser(ITokenStorage tokenStorage)
+        public TokenUser(ITokenStorage tokenStorage, AuthenticationCookieHandler cookieHandler)
         {
-            Token = HttpContext.Current.Request.Headers.Get("authentication-tocken");
+            Token = cookieHandler.GetTokenFromRequest();
             if (!string.IsNullOrEmpty(Token))
             {
                 LoginId = tokenStorage.GetLoginId(Token);

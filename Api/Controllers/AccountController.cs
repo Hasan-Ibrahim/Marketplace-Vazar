@@ -14,12 +14,17 @@ namespace Api.Controllers
         private readonly AccountService _service;
         private readonly ITokenStorage _tokenStorage;
         private readonly TokenUser _tokenUser;
+        private readonly AuthenticationCookieHandler _cookieHandler;
 
-        public AccountController(AccountService service, ITokenStorage tokenStorage, TokenUser tokenUser)
+        public AccountController(AccountService service, 
+            ITokenStorage tokenStorage, 
+            TokenUser tokenUser,
+            AuthenticationCookieHandler cookieHandler)
         {
             _service = service;
             _tokenStorage = tokenStorage;
             _tokenUser = tokenUser;
+            _cookieHandler = cookieHandler;
         }
 
         [HttpPost]
@@ -28,7 +33,7 @@ namespace Api.Controllers
             if (_service.ValidateUser(login))
             {
                 var token = _tokenStorage.CreateToken(login.LoginId);
-                return new AuthenticationResponse(token);
+                return _cookieHandler.GetAuthenticatedResponse(token);
             }
             return null;
         }
