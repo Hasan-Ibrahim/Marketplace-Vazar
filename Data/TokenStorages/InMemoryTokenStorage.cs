@@ -9,7 +9,8 @@ namespace Data.TokenStorages
         public string CreateToken(string userId)
         {
             var token = Guid.NewGuid().ToString().Replace("-", "");
-            return _store[token] = userId;
+            _store[token] = userId;
+            return token;
         }
 
         public bool TokenExists(string token)

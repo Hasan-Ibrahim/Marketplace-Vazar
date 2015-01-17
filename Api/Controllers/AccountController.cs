@@ -1,4 +1,8 @@
-﻿using System.Web.Http;
+﻿using System;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Web.Http;
 using Api.AccessControl;
 using Data.TokenStorages;
 using Service.Account;
@@ -19,11 +23,12 @@ namespace Api.Controllers
         }
 
         [HttpPost]
-        public string GetToken([FromBody]Login login)
+        public HttpResponseMessage GetToken([FromBody]Login login)
         {
             if (_service.ValidateUser(login))
             {
-                return _tokenStorage.CreateToken(login.LoginId);
+                var token = _tokenStorage.CreateToken(login.LoginId);
+                return new AuthenticationResponse(token);
             }
             return null;
         }
