@@ -17,6 +17,10 @@ namespace Service.Account
 
         public bool ValidateUser(Login login)
         {
+            if (login == null || login.LoginId == null || login.Password == null)
+            {
+                return false;
+            }
             var passwordHash = GenerateHash(login.Password);
 
             var user = _userRepository.FindByLoginId(login.LoginId);
