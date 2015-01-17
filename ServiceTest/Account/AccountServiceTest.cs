@@ -57,5 +57,12 @@ namespace ServiceTest.Account
             var isValid = _accountService.ValidateUser(null);
             Assert.IsFalse(isValid);
         }
+
+        [Test]
+        public void GenerateHash_KnownHashes()
+        {
+            var h123 = _accountService.GenerateHash("123");
+            Assert.AreEqual("202cb962ac59075b964b07152d234b70", h123);
+        }
     }
 }
