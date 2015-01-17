@@ -23,10 +23,10 @@
                 });
             },
             changePassword: function(passwordModel) {
-                return accountRepository.changePassword(passwordModel).error(function() {
+                return accountRepository.changePassword(passwordModel).success(function() {
                     toastr.success('Password changed');
                 }).error(function() {
-                    toastr.success('Unable to changed password');
+                    toastr.error('Unable to change password');
                 });
             }
         }

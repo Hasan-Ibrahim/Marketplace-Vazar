@@ -101,6 +101,7 @@
     <Content Include="Scripts\Lib\angular-toastr.js" />
     <Content Include="Scripts\App\urlResolver.js" />
     <Content Include="Scripts\App\Account\Controllers\changePasswordController.js" />
+    <Content Include="Scripts\Test\loginController.test.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

@@ -18,7 +18,7 @@
             controller: 'changePasswordController'
         })
         .otherwise({
-            redirectTo: '/account/register'
+            redirectTo: '/home'
         });
     }
 ]);

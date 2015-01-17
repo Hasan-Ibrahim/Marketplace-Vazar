@@ -14,6 +14,7 @@ describe("tests for urlResolver", function () {
     beforeEach(function () {
         module('appModule');
     });
+    
 
     it("should have a method resolveAccount", inject(function (urlResolver) {
         expect(urlResolver.resolveAccount).toBeDefined();
