@@ -19,7 +19,7 @@
             }
         </div>
         Login <br/>
-        <a href="@Url.Action("GoogleSignIn", "OAuth")">Signin with Google</a>
+        <a href="api/OAuth/GoogleSignIn?clientRedirectUrl=http://localhost:1443/"> Signin with Google</a>
         <a href="@Url.Action("FacebookSignIn", "OAuth")">Signin with Facebook</a>
         <form action="api/Account/Login" method="POST">
             Login Id:

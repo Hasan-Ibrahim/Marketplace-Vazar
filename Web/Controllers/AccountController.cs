@@ -1,7 +1,5 @@
 ﻿using System.Web.Mvc;
-using System.Web.Security;
 using Service.Account;
-using Login = Service.Account.Login;
 
 namespace Web.Controllers
 {

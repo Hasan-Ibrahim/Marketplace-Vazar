@@ -1,4 +1,4 @@
-﻿namespace Web.Models
+﻿namespace Api.AccessControl.OAuth
 {
     public class GoogleOAuthResponse
     {

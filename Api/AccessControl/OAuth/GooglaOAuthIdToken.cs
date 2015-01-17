@@ -1,8 +1,8 @@
-﻿namespace Web.Models
+﻿namespace Api.AccessControl.OAuth
 {
     public class GooglaOAuthIdToken
     {
-        public string iss { get; set; }
+        public string iss { get; set; }  
         public string at_hash { get; set; }
         public bool email_verified { get; set; }
         public string sub { get; set; }
