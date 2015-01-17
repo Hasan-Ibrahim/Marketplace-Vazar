@@ -1,0 +1,5 @@
+﻿appModule.controller('homeController', [
+    function () {
+
+    }
+]);

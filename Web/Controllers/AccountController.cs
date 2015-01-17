@@ -10,8 +10,6 @@ namespace Web.Controllers
         public AccountController(AccountService accountService)
         {
             _accountService = accountService;
-        }
-
-        
+        }       
     }
 }
