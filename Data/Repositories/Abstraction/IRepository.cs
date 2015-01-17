@@ -4,7 +4,7 @@ using Data.Model;
 
 namespace Data.Repositories.Abstraction
 {
-    public interface IRepository<TModel> where TModel : DbModel
+    public interface IRepository<TModel> : IDisposable where TModel : DbModel
     {
         TModel Find(int id);
 

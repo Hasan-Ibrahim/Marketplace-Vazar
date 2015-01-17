@@ -76,5 +76,9 @@ namespace Data.Repositories.Abstraction
             itemToDelete.IsDeleted = true;
             return true;
         }
+
+        public void Dispose()
+        {
+        }
     }
 }

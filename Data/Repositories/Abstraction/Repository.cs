@@ -47,5 +47,10 @@ namespace Data.Repositories.Abstraction
         {
             return _inneRepository.SoftDelete(id);
         }
+
+        public void Dispose()
+        {
+            _inneRepository.Dispose();
+        }
     }
 }
