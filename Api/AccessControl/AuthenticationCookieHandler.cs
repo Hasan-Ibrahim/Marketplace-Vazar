@@ -19,17 +19,24 @@ namespace Api.AccessControl
             };
 
             response.Headers.AddCookies(new[] { authenticationKookie });
+            
             return response;
         }
 
         public string GetTokenFromRequest()
         {
             var cookieString = HttpContext.Current.Request.Headers.Get("Cookie");
+            if (cookieString == null)
+            {
+                return null;
+            }
             var cookieContainer = new CookieContainer();
 
-            cookieContainer.SetCookies(HttpContext.Current.Request.Url, cookieString);
+            var url = new Uri("http://dummy.com");
 
-            var cookies = cookieContainer.GetCookies(HttpContext.Current.Request.Url);
+            cookieContainer.SetCookies(url, cookieString);
+
+            var cookies = cookieContainer.GetCookies(url);
 
             var cookie = cookies[CookieKey];
             return cookie != null ? cookie.Value : null;
