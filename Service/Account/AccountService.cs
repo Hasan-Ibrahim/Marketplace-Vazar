@@ -19,7 +19,7 @@ namespace Service.Account
         {
             var passwordHash = GenerateHash(password);
 
-            var user = _userRepository.FindByLoginId(loginId);
+            var user = _userRepository.FindByLoginId(loginId).Result;
 
             return user != null && user.HashedPassword != null && user.HashedPassword == passwordHash;
         }
@@ -46,7 +46,7 @@ namespace Service.Account
 
         public bool UpdateProfile(string loginId, ProfileUpdate update)
         {
-            var profile = _userRepository.FindByLoginId(loginId);
+            var profile = _userRepository.FindByLoginId(loginId).Result;
 
             if (!string.IsNullOrWhiteSpace(update.OldPassword))
             {

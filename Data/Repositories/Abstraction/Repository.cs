@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Data.Model;
+using System;
 using System.Collections.Generic;
-using Data.Model;
+using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace Data.Repositories.Abstraction
 {
@@ -13,24 +15,24 @@ namespace Data.Repositories.Abstraction
             _inneRepository = inneRepository;
         }
 
-        public TModel Find(int id)
+        public async Task<TModel> Find(int id)
         {
-            return _inneRepository.Find(id);
+            return await _inneRepository.Find(id);
         }
 
-        public TModel Find(Func<TModel, bool> query)
+        public async Task<TModel> Find(Expression<Func<TModel, bool>> query)
         {
-            return _inneRepository.Find(query);
+            return await _inneRepository.Find(query);
         }
 
-        public bool Exists(Func<TModel, bool> query)
+        public bool Exists(Expression<Func<TModel, bool>> query)
         {
             return _inneRepository.Exists(query);
         }
 
-        public IEnumerable<TModel> GetAll()
+        public async Task<IEnumerable<TModel>> GetAll()
         {
-            return _inneRepository.GetAll();
+            return await _inneRepository.GetAll();
         }
 
         public TModel Create(TModel item)

@@ -1,4 +1,6 @@
 ﻿using System.Data.Entity;
+using System.Linq.Expressions;
+using System.Threading.Tasks;
 using Data.Context;
 using Data.Model;
 using System;
@@ -15,24 +17,24 @@ namespace Data.Repositories.Abstraction
         {
             _db = sqlContext;
         }
-        public TModel Find(int id)
+        public async Task<TModel> Find(int id)
         {
-            return _db.Set<TModel>().Find(id);
+            return await _db.Set<TModel>().FindAsync(id);
         }
 
-        public TModel Find(Func<TModel, bool> query)
+        public async Task<TModel> Find(Expression<Func<TModel, bool>> query)
         {
-            return _db.Set<TModel>().FirstOrDefault(query);
+            return await _db.Set<TModel>().FirstOrDefaultAsync(query);
         }
 
-        public bool Exists(Func<TModel, bool> query)
+        public bool Exists(Expression<Func<TModel, bool>> query)
         {
             return _db.Set<TModel>().Any(query);
         }
 
-        public IEnumerable<TModel> GetAll()
+        public async Task<IEnumerable<TModel>> GetAll()
         {
-            return _db.Set<TModel>().Where(m => m.IsDeleted == false);
+            return await _db.Set<TModel>().Where(m => m.IsDeleted == false).ToListAsync();
         }
 
         public TModel Create(TModel item)
@@ -48,11 +50,11 @@ namespace Data.Repositories.Abstraction
 
         public bool SoftDelete(int id)
         {
-            var itemToDelete = Find(id);
-            if (itemToDelete != null)
+            var itemTask = Find(id);
+            if (itemTask.IsCompleted && itemTask.Result != null)
             {
-                itemToDelete.IsDeleted = true;
-                Update(itemToDelete);
+                itemTask.Result.IsDeleted = true;
+                Update(itemTask.Result);
                 return true;
             }
             return false;

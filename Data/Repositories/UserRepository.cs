@@ -1,4 +1,5 @@
-﻿using Data.Model;
+﻿using System.Threading.Tasks;
+using Data.Model;
 using Data.Repositories.Abstraction;
 
 namespace Data.Repositories
@@ -9,7 +10,7 @@ namespace Data.Repositories
         {
         }
 
-        public DbUser FindByLoginId(string email)
+        public Task<DbUser> FindByLoginId(string email)
         {
             return Find(user => user.LoginId == email);
         }

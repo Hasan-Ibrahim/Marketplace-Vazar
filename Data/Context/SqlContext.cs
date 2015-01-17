@@ -4,7 +4,7 @@ using Data.Model;
 
 namespace Data.Context
 {
-    class SqlContext : DbContext
+    public class SqlContext : DbContext
     {
         public SqlContext() : base(ConfigurationManager.AppSettings["SqlConnection"])
         {
